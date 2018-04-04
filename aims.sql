@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2018 at 02:17 AM
+-- Generation Time: Apr 04, 2018 at 12:06 PM
 -- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,10 +59,8 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `fname`, `mname`, `lname`, `address`, `contact_num`, `birthdate`, `position`, `emp_type`, `date_hired`, `father_name`, `mother_name`, `sss_no`, `ph_no`, `pagibig`, `tin`, `photo`, `score`, `acct_type`, `status`) VALUES
 (1, 'admin', 'admin', 'Luis Edward', 'Manzanal', 'Miranda', 'Sipocot, Camarines Sur', '09980083433', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 0, 'admin', 'active'),
-(3, 'admin', 'admin', 'Luis Edward', 'Manzanal', 'Miranda', 'Sipocot, Camarines Sur', '09980083433', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 8, 'employee', 'active'),
 (6, 'abccc', 'asdasd', 'asdasdasdasdas', 'dasdas', 'dasdasda', 'sdasdasd', 'asdasdasdasd', '2018-03-08', 'ah', 'fixed_period', '2018-03-08', 'asdasdasd', 'asdasdasdas', 'dasdasdas', 'asdasdasdassdasd', 'asdasd', 'asdasd', '1522061327Desert.jpg', 0, 'employee', 'active'),
 (8, 'asd123', 'asd123', 'Jess123', 'Men', 'Pards', 'Abc', 'asd291898', '2018-03-27', 'as', 'regular', '2018-03-27', 'Pards1', 'Pards2', '12412412', '412412412', '1241242', '4124124', '1522564913download.jpg', 0, 'employee', 'active'),
-(9, 'admin', 'admin', 'Alnera', 'B', 'Santiago', 'naenae@gmail.com', '09153623213', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 8, 'employee', 'active'),
 (12, 'kim', 'kim', 'Kim', 'b', 'Luta', 'aksfgsdgh', '0837349562', '1988-02-08', 'as', 'trainee', '2015-02-09', 'm', 'l', '039457', '385619', '124154', '343254', '', 0, 'employee', 'active'),
 (13, '1234567890', '1234567890', 'shay', 'm', 'tias', 'shay@gmail.com', '09562738193', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 9, 'employee', 'active'),
 (14, '', '', 'Kobe', 'Frank', 'Byant', 'DYD', '09153623213', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 14, 'employee', 'pending');
@@ -200,8 +198,6 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`id`, `account_id`, `C1`, `C2`, `C3`, `C4`, `C5`, `C6`, `C7`, `C8`, `C9`, `C10`, `C11`, `C12`, `C13`, `C14`, `C15`, `C16`, `C17`, `C18`, `C19a`, `C19b`, `C19c`, `C19d`, `C20a`, `C20b`, `C20c`) VALUES
-(2, 3, '1', 'b', 'a', 'b', '1', 'b', '1', 'a', '1', 'b', 'b', '1', 'b', 'a:1:{i:0;s:1:\"a\";}', 'a:1:{i:0;s:1:\"a\";}', 'b', 'a', '1', 'b', '1', 'a', 'b', '1', 'b', 'a'),
-(3, 9, '1', '1', '1', 'a', '1', 'b', 'b', 'a', 'a', 'b', '1', '1', 'b', 'a:1:{i:0;s:1:\"1\";}', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"a\";}', 'c', 'c', 'c', 'b', 'a', 'b', 'a', '1', '1', 'b'),
 (5, 13, 'b', 'c', 'a', 'b', 'b', '1', 'b', 'c', 'b', 'c', 'b', '1', 'c', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"1\";}', 'a:2:{i:0;s:1:\"a\";i:1;s:1:\"1\";}', '1', '1', '1', '1', '1', 'a', 'b', '1', 'b', 'a'),
 (6, 14, '1', '1', '1', '1', '1', 'b', '1', '1', '1', '1', 'b', 'a', 'c', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"b\";}', 'a:2:{i:0;s:1:\"a\";i:1;s:1:\"1\";}', '1', '1', '1', 'b', '1', 'a', 'b', '1', 'b', 'b');
 
@@ -213,7 +209,8 @@ INSERT INTO `exam` (`id`, `account_id`, `C1`, `C2`, `C3`, `C4`, `C5`, `C6`, `C7`
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `attachments`
