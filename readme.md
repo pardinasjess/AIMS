@@ -1,6 +1,13 @@
 # AIMS Agriventure, Inc. OPEEPS
 AIMS Agriventure, Inc. Online Performance Evaluating & Employee Profiling System.
 
+## Future Updates
+* Add FlashCard - Alert Message every error on Admin Page
+* Add FlashCard - Alert Message every error on Employee Page
+* Add Button to add Employment Position
+* Add DateHired Computation to tell the years, months, and days from the datehired upto the current date.
+* Add Backup Record
+
 ## Admin Page
 ### View List
 *  List of Employees
@@ -18,6 +25,7 @@ AIMS Agriventure, Inc. Online Performance Evaluating & Employee Profiling System
         1. Print
     2. Approve
     3. Decline
+
 ### Examination Codes
 1. Generate New Code
 

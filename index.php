@@ -1,12 +1,9 @@
 <?php
 include_once "class/MySqlLeaf.php";
 include_once "class/AccountHandler.php";
+include_once "class/FlashCard.php";
 
-@$rand_code = $_POST["code"];
-
-@$username = $_POST["username"];
-@$password = $_POST["password"];
-
+// Check if the account is logged or not
 if(AccountHandler::isLogin()){
     switch (AccountHandler::getAccountType()){
         case 'admin':
@@ -22,6 +19,7 @@ if(AccountHandler::isLogin()){
     exit;
 }
 
+@$rand_code = $_POST["code"];
 // Trigger for Code Submit
 if (isset($rand_code)){
     $result = mysqli_query(MySqlLeaf::getCon(),
@@ -54,6 +52,8 @@ if (isset($rand_code)){
     }
 }
 
+@$username = $_POST["username"];
+@$password = $_POST["password"];
 // Trigger for Username, Password - Submit
 if (isset($username) && isset($password)){
 
@@ -63,9 +63,9 @@ if (isset($username) && isset($password)){
     $fetch = mysqli_fetch_array($result);
 
     if (mysqli_num_rows($result) < 1) {
-        // TODO: flashCard
-        echo "Username not found";
-        exit();
+        // Add FlashCard
+        FlashCard::setFlashCard("errorUsername");
+        
     } else {
         if ($password == $fetch['password']) {
 
@@ -87,12 +87,14 @@ if (isset($username) && isset($password)){
             }
             exit;
         } else {
-            // TODO: flashCard
-            echo "WRONG PASSWORD";
-            exit;
+            // Add FlashCCard
+            FlashCard::setFlashCard("errorPassword");
         }
     }
 
+    // Reload the Page
+    header("location: index.php");
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -275,25 +277,27 @@ if (isset($username) && isset($password)){
             </div>
             <div class="modal-body">
 	            <?php
-                @$error = $_GET["error"];
-	            if (isset($error)){
-		            if ($error == "username"){
-			            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>";
-			            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
-			            echo "        <span aria-hidden='true'>&times;</span>";
-			            echo "    </button>";
-			            echo "    <b>Error!</b> Username does not exist.";
-			            echo "</div>";
-		            }
-		            if ($error == "password"){
-			            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
-			            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
-			            echo "        <span aria-hidden='true'>&times;</span>";
-			            echo "    </button>";
-			            echo "    <b>Opps..</b> Password Mismatch.";
-			            echo "</div>";
-		            }
-	            }
+                $flashCard = FlashCard::hasFlashCard();
+	            if ($flashCard){
+                    switch (FlashCard::getFlashCard()) {
+                        case 'errorUsername':
+                            echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>";
+                            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                            echo "        <span aria-hidden='true'>&times;</span>";
+                            echo "    </button>";
+                            echo "    <b>Error!</b> Username does not exist.";
+                            echo "</div>";
+                            break;
+                        case 'errorPassword':
+                            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
+                            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                            echo "        <span aria-hidden='true'>&times;</span>";
+                            echo "    </button>";
+                            echo "    <b>Opps..</b> Password Mismatch.";
+                            echo "</div>";
+                            break;
+                    }
+                }
 	            ?>
 
                 <label for="username" class="font-weight-bold">Username:</label>
@@ -309,8 +313,12 @@ if (isset($username) && isset($password)){
     </div>
 </div>
 
-<script>
-    // $("#errorLogin").modal("show");
+<script type="text/javascript">
+<?php
+    if ($flashCard){
+        echo '$("#errorLogin").modal("show");';
+    }
+?>
 </script>
 </body>
 </html>
