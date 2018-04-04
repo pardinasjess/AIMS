@@ -32,6 +32,7 @@ if(!AccountHandler::isLogin()){
 @ $pagibigNum = $_POST["Pagibignum"];
 @ $id = $_POST["id"];
 
+// Create and Update Employee Account
 if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($contact) &&
     isset($birthdate) && isset($empstatus) && isset($username) && isset($password) && isset($hiredDate) &&
     isset($fatherName) && isset($motherName) && isset($sssNum) && isset($philNum) && isset($tinNum) &&
@@ -64,6 +65,8 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
     }
 }
 
+
+// GEt the List of Accounts.
 @ $getList = $_POST["getList"];
 if (isset($getList)){
     $requestData = $_POST;
@@ -298,7 +301,7 @@ if (isset($_POST["delete"])){
 	exit;
 }
 
-// Trigger Delete
+// Trigger Decline
 if (isset($_POST["decline"])){
 	$id = $_POST["id"];
 	$sql = "DELETE FROM `exam` WHERE `account_id`='$id'; 
@@ -308,7 +311,8 @@ if (isset($_POST["decline"])){
 	header("location: /admin.php");
 	exit;
 }
-// Trigger Delete
+
+// Trigger Approave
 if (isset($_POST["approve"])){
 	$id = $_POST["id"];
 	$username = $_POST["approveUsername"];
@@ -316,8 +320,14 @@ if (isset($_POST["approve"])){
 	$sql = "UPDATE `accounts`
                 SET `username`='$username',`password`='$password', `status`='active'
                 WHERE `id`='$id'";
-	mysqli_multi_query(MySqlLeaf::getCon(), $sql);
-	header("location: /admin.php");
+    $query = mysqli_multi_query(MySqlLeaf::getCon(), $sql);
+    
+    if ($query === true){
+        header("location: /admin.php");        
+    }else{
+        // TODO: Add Flash Card for Approve
+        echo "An error occurs";
+    }
 	exit;
 }
 
