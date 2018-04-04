@@ -1,0 +1,103 @@
+
+body{
+	background: #4B79A1;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#dia {
+	max-width: 1200px!important;
+}
+
+ul{
+	list-style: none;
+}
+
+img#graph{
+	display: block;
+	margin: auto;
+}
+
+#examModal .modal-dialog,
+#attachModal .modal-dialog,
+#evaluateModal .modal-dialog{
+	max-width: 1000px !important;
+}
+
+#attachmentPreview{
+	width: 400px;
+}
+
+#attachmentList{
+	width: 600px;
+}
+
+#evaluationPreview{
+	width: 400px;
+}
+
+#evaluationList{
+	width: 600px;
+}
+
+#addModal label{
+	font-weight: bold !important;
+}
+
+.navbar-nav{
+	display: block;
+	width: 100%;
+}
+
+li.nav-item{
+	display: inline-block;
+}
+
+table{
+	width: 100% !important;
+}
+
+/* START PAGINATION */
+
+.paginate_button {
+	position: relative;
+	padding: 0.5rem 0.75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	color: #4f75ba;
+	background-color: #fff;
+	border: 1px solid #5d78ff;
+	outline: none;
+}
+.paginate_button:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+.paginate_button.current{
+	background: #4f75ba;
+	color: white;
+	font-weight: bold;
+	border-color: #5d78ff;
+}
+.paginate_button.disabled{
+	display: none;
+	visibility: hidden;
+}
+.dataTables_paginate > .paginate_button:first-child  {
+	margin-left: 0;
+	border-bottom-left-radius: 0.25rem;
+	border-top-left-radius: 0.25rem;
+}
+.dataTables_paginate > .paginate_button:last-child {
+	border-bottom-right-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+}
+#dataTable_paginate{
+	float: right;
+	padding-top: 0.85em;
+}
+#dataTable_info{
+	float: left;
+	padding-top: 0.45em;
+}

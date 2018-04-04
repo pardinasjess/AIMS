@@ -1,0 +1,27 @@
+body{
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+nav{
+    background-color: #666 !important;
+    background-color: rgba(0,0,0,.6) !important;
+}
+
+#mainContainer{
+    margin-top: 120px;
+}
+
+#add, #dia {
+    max-width: 1200px!important;
+}
+
+label, input[type="checkbox"]{
+    cursor: pointer;
+}
+
+img#graph{
+    display: block;
+    margin: auto;
+}
