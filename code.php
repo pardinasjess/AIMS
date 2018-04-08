@@ -2,6 +2,7 @@
 include_once "class/EnlistExam.php";
 include_once "class/MySqlLeaf.php";
 include_once "class/AccountHandler.php";
+include_once "class/FlashCard.php";
 
 if(!AccountHandler::isLogin()){
 	header("location: /");
@@ -17,6 +18,7 @@ if (isset($_POST["code"])){
 	$generatedCode = md5(time());
 	$sql = "INSERT INTO `codes`(`code`) VALUES ('$generatedCode')";
 	mysqli_query(MySqlLeaf::getCon(), $sql);
+	FlashCard::setFlashCard("codeAdded");
 	header("location: /code.php");
 	exit;
 }
@@ -90,6 +92,7 @@ if (isset($_POST["delete"])){
 	$sql = "DELETE FROM `codes` WHERE `id`='$id'";
 	mysqli_query(MySqlLeaf::getCon(), $sql);
 
+	FlashCard::setFlashCard("codeRemoved");
 	header("location: /code.php");
 	exit;
 }
@@ -137,6 +140,29 @@ if (isset($_POST["delete"])){
 </nav>
 
 <div class="card container-fluid p-3">
+<?php  
+    $flashCard = FlashCard::hasFlashCard();
+    if ($flashCard){
+        switch (FlashCard::getFlashCard()) {
+            case 'codeAdded':
+                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Success!</b> A new code has been generated";
+                echo "</div>";
+                break;
+            case 'codeRemoved':
+                echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Information:</b> A code from the list has been removed.";
+                echo "</div>";
+                break;
+        }
+    }
+    ?>
 	<h3>List of Codes</h3>
 	<table class="table" id="tableCode">
 		<thead  class="thead-default">
