@@ -2,6 +2,7 @@
 include_once "class/EnlistExam.php";
 include_once "class/MySqlLeaf.php";
 include_once "class/AccountHandler.php";
+include_once "class/FlashCard.php";
 
 if(!AccountHandler::isLogin()){
 	header("location: /");
@@ -32,7 +33,7 @@ if(!AccountHandler::isLogin()){
 @ $pagibigNum = $_POST["Pagibignum"];
 @ $id = $_POST["id"];
 
-// Create and Update Employee Account
+// TriggerCreate and Update Employee Account
 if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($contact) &&
     isset($birthdate) && isset($empstatus) && isset($username) && isset($password) && isset($hiredDate) &&
     isset($fatherName) && isset($motherName) && isset($sssNum) && isset($philNum) && isset($tinNum) &&
@@ -46,9 +47,7 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
             ('$username','$password','$fname','$mname','$lname','$address','$contact','$birthdate','$position','$empstatus','$hiredDate','$fatherName','$motherName','$sssNum','$philNum','$pagibigNum','$tinNum','active')";
 	    mysqli_query(MySqlLeaf::getCon(), $sql);
 
-	    // TODO: FlashCard
-	    header("location: /admin.php");
-	    exit;
+        FlashCard::setFlashCard("accountCreated");
     }else{
         $sql = "UPDATE `accounts`
                 SET `username`='$username',`password`='$password',`fname`='$fname',`mname`='$mname',
@@ -59,10 +58,10 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
                 WHERE `id`='$id'";
         mysqli_query(MySqlLeaf::getCon(), $sql);
 
-	    // TODO: FlashCard
-	    header("location: /admin.php");
-	    exit;
+        FlashCard::setFlashCard("accountUpdated");
     }
+    header("location: /admin.php");
+    exit;
 }
 
 
@@ -296,7 +295,9 @@ if (isset($_POST["delete"])){
             DELETE FROM `attachments` WHERE `account_id`='$id';
             DELETE FROM `accounts` WHERE `id`='$id'; 
             ";
-	mysqli_multi_query(MySqlLeaf::getCon(), $sql);
+    mysqli_multi_query(MySqlLeaf::getCon(), $sql);
+    
+    FlashCard::setFlashCard("deleteAccount");
 	header("location: /admin.php");
 	exit;
 }
@@ -307,7 +308,9 @@ if (isset($_POST["decline"])){
 	$sql = "DELETE FROM `exam` WHERE `account_id`='$id'; 
             DELETE FROM `attachments` WHERE `account_id`='$id';
             DELETE FROM `accounts` WHERE `id`='$id'; ";
-	mysqli_multi_query(MySqlLeaf::getCon(), $sql);
+    mysqli_multi_query(MySqlLeaf::getCon(), $sql);
+    
+    FlashCard::setFlashCard("declineApplicant");
 	header("location: /admin.php");
 	exit;
 }
@@ -323,16 +326,16 @@ if (isset($_POST["approve"])){
     $query = mysqli_multi_query(MySqlLeaf::getCon(), $sql);
     
     if ($query === true){
-        header("location: /admin.php");        
+        FlashCard::setFlashCard("approvedApplicant");
     }else{
-        // TODO: Add Flash Card for Approve
-        echo "An error occurs";
+        FlashCard::setFlashCard("duplicateUser");
     }
+    header("location: /admin.php");        
 	exit;
 }
 
+// Trigger Evaluate
 if (isset($_POST['evaluate'])){
-
 	$id = $_POST['id'];
 
 	$pes = $_POST['pes'];
@@ -361,6 +364,7 @@ if (isset($_POST['evaluate'])){
 
 	mysqli_multi_query(MySqlLeaf::getCon(), $sql);
 
+    FlashCard::setFlashCard("successEvaluation");
 	header("location: /admin.php");
 	exit;
 }
@@ -408,8 +412,71 @@ if (isset($_POST['evaluate'])){
     </div>
 </nav>
 
-<div class="card container-fluid">
-    <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+<div class="card container-fluid p-3">
+    <?php  
+    $flashCard = FlashCard::hasFlashCard();
+    if ($flashCard){
+        switch (FlashCard::getFlashCard()) {
+            case 'accountCreated':
+                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Success!</b> A new employee account information has been added";
+                echo "</div>";
+                break;
+            case 'accountUpdated':
+                echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Information:</b> Employee Information has been updated.";
+                echo "</div>";
+                break;
+            case 'deleteAccount':
+                echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Information:</b> Employee Information has been removed";
+                echo "</div>";
+                break;
+            case 'declineApplicant':
+                echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Information:</b> An applicant has been decline.";
+                echo "</div>";
+                break;
+            case 'approvedApplicant':
+                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Information:</b> An applicant has been approved.";
+                echo "</div>";
+                break;
+            case 'duplicateUser':
+                echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Warning:</b> Possible username duplication has been detected.";
+                echo "</div>";
+                break;
+            case 'successEvaluation':
+                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>";
+                echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                echo "        <span aria-hidden='true'>&times;</span>";
+                echo "    </button>";
+                echo "    <b>Congratulations:</b> an Evaluation was successfully added.";
+                echo "</div>";
+                break;
+        }
+    }
+    ?>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="listofemp-tab" data-toggle="tab" href="#listofemp" role="tab" aria-controls="perprof" aria-selected="true">List of Employees</a>
         </li>
