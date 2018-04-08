@@ -29,7 +29,6 @@ if (isset($rand_code)){
 
     if (mysqli_num_rows($result) < 1){
         FlashCard::setFlashCard("codeWrong");
-        exit();
     } else {
         if ($fetch["status"] == 0){
 	        $_SESSION['username'] = $rand_code;
@@ -44,10 +43,11 @@ if (isset($rand_code)){
             FlashCard::setFlashCard("codeUsed");
         }
         
-        // Reload the page
-        header("location: /");
-        exit();
     }
+    
+    // Reload the page
+    header("location: /");
+    exit();
 }
 
 @$username = $_POST["username"];
