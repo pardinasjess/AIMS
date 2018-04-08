@@ -28,8 +28,7 @@ if (isset($rand_code)){
     $fetch = mysqli_fetch_array($result);
 
     if (mysqli_num_rows($result) < 1){
-        // TODO: flashCard
-        echo "code Not found";
+        FlashCard::setFlashCard("codeWrong");
         exit();
     } else {
         if ($fetch["status"] == 0){
@@ -41,14 +40,13 @@ if (isset($rand_code)){
 	        setcookie( "type", "code", time() + (10 * 365 * 24 * 60 * 60) );
 	        setcookie( "id", 0, time() + (10 * 365 * 24 * 60 * 60) );
 
-	        // Reload the page
-	        header("location: /");
-	        exit();
         }else{
-            // TODO: flashCard
-            echo "Code already used";
-            exit;
+            FlashCard::setFlashCard("codeUsed");
         }
+        
+        // Reload the page
+        header("location: /");
+        exit();
     }
 }
 
@@ -87,7 +85,6 @@ if (isset($username) && isset($password)){
             }
             exit;
         } else {
-            // Add FlashCCard
             FlashCard::setFlashCard("errorPassword");
         }
     }
@@ -294,6 +291,22 @@ if (isset($username) && isset($password)){
                             echo "        <span aria-hidden='true'>&times;</span>";
                             echo "    </button>";
                             echo "    <b>Opps..</b> Password Mismatch.";
+                            echo "</div>";
+                            break;
+                        case 'codeUsed':
+                            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
+                            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                            echo "        <span aria-hidden='true'>&times;</span>";
+                            echo "    </button>";
+                            echo "    <b>Opps..</b> Code already used, try logging-in instead.";
+                            echo "</div>";
+                            break;
+                        case 'codeWrong':
+                            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
+                            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                            echo "        <span aria-hidden='true'>&times;</span>";
+                            echo "    </button>";
+                            echo "    <b>Opps..</b> You entered an invalid code, try logging-in instead.";
                             echo "</div>";
                             break;
                     }
