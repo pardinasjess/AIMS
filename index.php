@@ -309,6 +309,14 @@ if (isset($username) && isset($password)){
                             echo "    <b>Opps..</b> You entered an invalid code, try logging-in instead.";
                             echo "</div>";
                             break;
+                        case 'exaDmone':
+                            echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+                            echo "    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+                            echo "        <span aria-hidden='true'>&times;</span>";
+                            echo "    </button>";
+                            echo "    <b>Information..</b> Thank you for taking examination";
+                            echo "</div>";
+                            break;
                     }
                 }
 	            ?>

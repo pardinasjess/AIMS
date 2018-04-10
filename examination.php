@@ -2,6 +2,7 @@
 include_once "class/EnlistExam.php";
 include_once "class/MySqlLeaf.php";
 include_once "class/AccountHandler.php";
+include_once "class/FlashCard.php";
 
 // Check if not login
 if(!AccountHandler::isLogin()){
@@ -69,6 +70,7 @@ if(isset($_POST['C1']) && isset($_POST['C2']) && isset($_POST['C3']) &&
     mysqli_multi_query(MySqlLeaf::getCon(), $sql1.$sql2.$sql3);
 
     EnlistExam::clearPrepared();
+    FlashCard::setFlashCard("exaDmone");
     header("location: /logout.php");
     exit;
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1130f010-518e-4ab1-8a10-82d96f65929d" name="Default" comment="" />
+    <list default="true" id="1130f010-518e-4ab1-8a10-82d96f65929d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/examination.php" afterPath="$PROJECT_DIR$/examination.php" />
+      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,35 +20,55 @@
     <favorites_list name="aims" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="522" column="46" lean-forward="true" selection-start-line="522" selection-start-column="46" selection-end-line="522" selection-end-column="46" />
+            <state relative-caret-position="204">
+              <caret line="313" column="33" lean-forward="true" selection-start-line="313" selection-start-column="33" selection-end-line="313" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="examination.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examination.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="72" column="37" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="37" />
               <folding>
-                <marker date="1522709443150" expanded="true" signature="1248:1728" ph="INSERT INTO `accounts`... " />
-                <marker date="1522709443150" expanded="true" signature="1877:2406" ph="UPDATE `accounts`... " />
-                <marker date="1522709443150" expanded="true" signature="2952:3028" ph="SELECT id FR... accounts" />
-                <marker date="1522709443150" expanded="true" signature="3095:3207" ph="SELECT id, f... accounts" />
-                <marker date="1522709443150" expanded="true" signature="5145:5193" ph="SELECT id FR... accounts" />
-                <marker date="1522709443150" expanded="true" signature="5260:5329" ph="SELECT id, f... accounts" />
-                <marker date="1522709443150" expanded="true" signature="7221:7275" ph="SELECT id FR... attachments" />
-                <marker date="1522709443150" expanded="true" signature="7342:7395" ph="SELECT * FRO... attachments" />
-                <marker date="1522709443150" expanded="true" signature="9022:9065" ph="SELECT id FR... eval" />
-                <marker date="1522709443150" expanded="true" signature="9132:9174" ph="SELECT * FRO... eval" />
-                <marker date="1522709443150" expanded="true" signature="11204:11257" ph="SELECT * FRO... exam" />
-                <marker date="1522709443150" expanded="true" signature="11540:11822" ph="SELECT `user... accounts" />
-                <marker date="1522709443150" expanded="true" signature="12061:12104" ph="DELETE FROM `exam`... " />
-                <marker date="1522709443150" expanded="true" signature="12119:12169" ph="DELETE FROM `attachments`... " />
-                <marker date="1522709443150" expanded="true" signature="12183:12222" ph="DELETE FROM `accounts`... " />
-                <marker date="1522709443150" expanded="true" signature="12410:12453" ph="DELETE FROM `exam`... " />
-                <marker date="1522709443150" expanded="true" signature="12468:12518" ph="DELETE FROM `attachments`... " />
-                <marker date="1522709443150" expanded="true" signature="12532:12571" ph="DELETE FROM `accounts`... " />
-                <marker date="1522709443150" expanded="true" signature="12825:12960" ph="UPDATE `accounts`... " />
-                <marker date="1522709443150" expanded="true" signature="13516:13595" ph="INSERT INTO `eval`... " />
-                <marker date="1522709443150" expanded="true" signature="13603:13886" ph="INSERT INTO `evaldata`... " />
+                <marker date="1523393185662" expanded="true" signature="2192:2441" ph="INSERT INTO `accounts`... " />
+                <marker date="1523393185662" expanded="true" signature="2491:2929" ph="INSERT INTO `exam`... " />
+                <marker date="1523393185662" expanded="true" signature="2947:3029" ph="UPDATE `codes`... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="316" column="91" lean-forward="false" selection-start-line="316" selection-start-column="91" selection-end-line="316" selection-end-column="91" />
+              <folding>
+                <marker date="1523393202824" expanded="true" signature="643:688" ph="SELECT * FRO... codes" />
+                <marker date="1523393202824" expanded="true" signature="1580:1651" ph="SELECT * FRO... accounts" />
+                <marker date="1523393202824" expanded="true" signature="11904:11911" ph="×" />
+                <marker date="1523393202824" expanded="true" signature="12468:12475" ph="×" />
+                <marker date="1523393202824" expanded="true" signature="13021:13028" ph="×" />
+                <marker date="1523393202824" expanded="true" signature="13599:13606" ph="×" />
+                <marker date="1523393202824" expanded="true" signature="14184:14191" ph="×" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlashCard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/class/FlashCard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,6 +109,9 @@
       <find>title</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -113,7 +140,6 @@
         <option value="$PROJECT_DIR$/class/EnlistExam.php" />
         <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/enlistment.php" />
-        <option value="$PROJECT_DIR$/examination.php" />
         <option value="$PROJECT_DIR$/css/examination.css" />
         <option value="$PROJECT_DIR$/css/employee.css" />
         <option value="$PROJECT_DIR$/employee.php" />
@@ -121,8 +147,9 @@
         <option value="$PROJECT_DIR$/css/admin.css" />
         <option value="$PROJECT_DIR$/css/enlistment.css" />
         <option value="$PROJECT_DIR$/evaluation.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin.php" />
+        <option value="$PROJECT_DIR$/examination.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -139,6 +166,7 @@
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -155,6 +183,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,7 +195,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,11 +264,13 @@
       <workItem from="1522194997600" duration="2073000" />
       <workItem from="1522214903522" duration="13000" />
       <workItem from="1522709282916" duration="682000" />
+      <workItem from="1522801033476" duration="449000" />
+      <workItem from="1523392401519" duration="789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143698000" />
+    <option name="totallyTimeSpent" value="144936000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,18 +283,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="786" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.197411" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2038835" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -394,7 +425,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/parallax.min.js" />
-    <entry file="file://$PROJECT_DIR$/class/FlashCard.php" />
     <entry file="file://$PROJECT_DIR$/file/Evaluation.html" />
     <entry file="file://$PROJECT_DIR$/file/Employee.html" />
     <entry file="file://$PROJECT_DIR$/class/MySqlLeaf.php" />
@@ -428,7 +458,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/examination.css" />
-    <entry file="file://$PROJECT_DIR$/examination.php" />
     <entry file="file://$PROJECT_DIR$/employee.php" />
     <entry file="file://$PROJECT_DIR$/code.php" />
     <entry file="file://$PROJECT_DIR$/css/admin.css" />
@@ -446,39 +475,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="198" column="63" lean-forward="false" selection-start-line="198" selection-start-column="63" selection-end-line="198" selection-end-column="63" />
+        <state relative-caret-position="204">
+          <caret line="313" column="33" lean-forward="true" selection-start-line="313" selection-start-column="33" selection-end-line="313" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin.php">
+    <entry file="file://$PROJECT_DIR$/class/FlashCard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="522" column="46" lean-forward="true" selection-start-line="522" selection-start-column="46" selection-end-line="522" selection-end-column="46" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="72" column="37" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="37" />
           <folding>
-            <marker date="1522709443150" expanded="true" signature="1248:1728" ph="INSERT INTO `accounts`... " />
-            <marker date="1522709443150" expanded="true" signature="1877:2406" ph="UPDATE `accounts`... " />
-            <marker date="1522709443150" expanded="true" signature="2952:3028" ph="SELECT id FR... accounts" />
-            <marker date="1522709443150" expanded="true" signature="3095:3207" ph="SELECT id, f... accounts" />
-            <marker date="1522709443150" expanded="true" signature="5145:5193" ph="SELECT id FR... accounts" />
-            <marker date="1522709443150" expanded="true" signature="5260:5329" ph="SELECT id, f... accounts" />
-            <marker date="1522709443150" expanded="true" signature="7221:7275" ph="SELECT id FR... attachments" />
-            <marker date="1522709443150" expanded="true" signature="7342:7395" ph="SELECT * FRO... attachments" />
-            <marker date="1522709443150" expanded="true" signature="9022:9065" ph="SELECT id FR... eval" />
-            <marker date="1522709443150" expanded="true" signature="9132:9174" ph="SELECT * FRO... eval" />
-            <marker date="1522709443150" expanded="true" signature="11204:11257" ph="SELECT * FRO... exam" />
-            <marker date="1522709443150" expanded="true" signature="11540:11822" ph="SELECT `user... accounts" />
-            <marker date="1522709443150" expanded="true" signature="12061:12104" ph="DELETE FROM `exam`... " />
-            <marker date="1522709443150" expanded="true" signature="12119:12169" ph="DELETE FROM `attachments`... " />
-            <marker date="1522709443150" expanded="true" signature="12183:12222" ph="DELETE FROM `accounts`... " />
-            <marker date="1522709443150" expanded="true" signature="12410:12453" ph="DELETE FROM `exam`... " />
-            <marker date="1522709443150" expanded="true" signature="12468:12518" ph="DELETE FROM `attachments`... " />
-            <marker date="1522709443150" expanded="true" signature="12532:12571" ph="DELETE FROM `accounts`... " />
-            <marker date="1522709443150" expanded="true" signature="12825:12960" ph="UPDATE `accounts`... " />
-            <marker date="1522709443150" expanded="true" signature="13516:13595" ph="INSERT INTO `eval`... " />
-            <marker date="1522709443150" expanded="true" signature="13603:13886" ph="INSERT INTO `evaldata`... " />
+            <marker date="1523393185662" expanded="true" signature="2192:2441" ph="INSERT INTO `accounts`... " />
+            <marker date="1523393185662" expanded="true" signature="2491:2929" ph="INSERT INTO `exam`... " />
+            <marker date="1523393185662" expanded="true" signature="2947:3029" ph="UPDATE `codes`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="316" column="91" lean-forward="false" selection-start-line="316" selection-start-column="91" selection-end-line="316" selection-end-column="91" />
+          <folding>
+            <marker date="1523393202824" expanded="true" signature="643:688" ph="SELECT * FRO... codes" />
+            <marker date="1523393202824" expanded="true" signature="1580:1651" ph="SELECT * FRO... accounts" />
+            <marker date="1523393202824" expanded="true" signature="11904:11911" ph="×" />
+            <marker date="1523393202824" expanded="true" signature="12468:12475" ph="×" />
+            <marker date="1523393202824" expanded="true" signature="13021:13028" ph="×" />
+            <marker date="1523393202824" expanded="true" signature="13599:13606" ph="×" />
+            <marker date="1523393202824" expanded="true" signature="14184:14191" ph="×" />
           </folding>
         </state>
       </provider>
