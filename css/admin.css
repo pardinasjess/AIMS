@@ -20,11 +20,12 @@ img#graph{
 }
 
 #examModal .modal-dialog,
-#attachModal .modal-dialog,
-#evaluateModal .modal-dialog{
+#attachModal .modal-dialog{
 	max-width: 1000px !important;
 }
-
+#evaluateModal .modal-dialog{
+	max-width: 1200px !important;
+}
 #attachmentPreview{
 	width: 400px;
 }
@@ -34,11 +35,11 @@ img#graph{
 }
 
 #evaluationPreview{
-	width: 400px;
+	width: 1200px;
 }
 
 #evaluationList{
-	width: 600px;
+	width: 1200px;
 }
 
 #addModal label{

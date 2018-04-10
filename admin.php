@@ -764,7 +764,7 @@ if (isset($_POST['evaluate'])){
 <div class="modal fade" id="evaluateModal" role="dialog">
     <div class="modal-dialog clearfix">
         <!-- Modal content-->
-        <div class="modal-content float-left" id="evaluationPreview">
+        <div class="modal-content" id="evaluationPreview">
             <div class="modal-body">
                 <div class="card-header mt-3">
                     <h5 align="center" >EMPLOYEE EVALUATION FORM</h5>
@@ -987,7 +987,7 @@ if (isset($_POST['evaluate'])){
             </div>
         </div>
         <!-- Modal content-->
-        <div class="modal-content float-left" id="evaluationList">
+        <div class="modal-content" id="evaluationList">
             <div class="modal-header">
                 <h4 class="modal-title">Evaluation History</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
