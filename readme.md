@@ -2,8 +2,6 @@
 AIMS Agriventure, Inc. Online Performance Evaluating & Employee Profiling System.
 
 ## Future Updates
-* Add FlashCard - Alert Message every error on Admin Page
-* Add FlashCard - Alert Message every error on Employee Page
 * Add Button to add Employment Position
 * Add DateHired Computation to tell the years, months, and days from the datehired upto the current date.
 * Add Backup Record
