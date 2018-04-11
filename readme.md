@@ -81,5 +81,3 @@ AIMS Agriventure, Inc. Online Performance Evaluating & Employee Profiling System
 ![Delete Employee](SQL/emp1.png "Images")
 ![Delete Employee](SQL/emp2.png "Images")
 ![Delete Employee](SQL/emp3.png "Images")
-
-
