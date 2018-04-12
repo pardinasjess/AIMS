@@ -154,5 +154,18 @@ if (EnlistExam::isPrepared()){
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input[name='contact']").on('keyup', function () {
+            $contact = $(this);
+            $maxLength = 11;
+
+            if ($contact.val().length > $maxLength){
+                $contact.val($contact.val().substring(0, $maxLength))
+            }
+
+        });
+    })
+</script>
 </body>
 </html>

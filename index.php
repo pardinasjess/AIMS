@@ -147,7 +147,7 @@ if (isset($username) && isset($password)){
     <div class="container text-center mb-3 font-weight-bold">
         <h2>
             The AOPEEPS serves as an online system that helps the
-            human resource management of AIMS Agri Ventures, Inc. in hiring
+            human resource department of AIMS Agri Ventures, Inc. in hiring
             and monitoring the performance of their employees.
         </h2>
     </div>
