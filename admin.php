@@ -844,7 +844,7 @@ if (isset($_POST['evaluate'])){
                             <tbody>
                             <tr>
                                 <td>a. The extent to which the employee completes assigned task within the alloted time.</td>
-                                <td><input type="radio" name="a1" id="a11" value="1" title="Choose 1" checked required/></td>
+                                <td><input type="radio" name="a1" id="a11" value="1" title="Choose 1"  required/></td>
                                 <td><input type="radio" name="a1" id="a12" value="2" title="Choose 2"  required/></td>
                                 <td><input type="radio" name="a1" id="a13" value="3" title="Choose 3"  required/></td>
                                 <td><input type="radio" name="a1" id="a14" value="4" title="Choose 4"  required/></td>
@@ -863,7 +863,7 @@ if (isset($_POST['evaluate'])){
 
                             <tr>
                                 <td>a. The extent to which the employee utilizes the job knowledge and sound reasoning to analyze situation, resolve prolbem and reach decision.</td>
-                                <td><input type="radio" name="a2" id="a21" value="1" title="Choose 1" checked required/></td>
+                                <td><input type="radio" name="a2" id="a21" value="1" title="Choose 1"  required/></td>
                                 <td><input type="radio" name="a2" id="a22" value="2" title="Choose 2"  required/></td>
                                 <td><input type="radio" name="a2" id="a23" value="3" title="Choose 3"  required/></td>
                                 <td><input type="radio" name="a2" id="a24" value="4" title="Choose 4"  required/></td>
@@ -881,7 +881,7 @@ if (isset($_POST['evaluate'])){
 
                             <tr>
                                 <td>a. The extent to which the employee is self-motivated; takes appropraite action on work related issues without being prompted.</td>
-                                <td><input type="radio" name="a3" id="a31" value="1" title="Choose 1" checked required/></td>
+                                <td><input type="radio" name="a3" id="a31" value="1" title="Choose 1"  required/></td>
                                 <td><input type="radio" name="a3" id="a32" value="2" title="Choose 2"  required/></td>
                                 <td><input type="radio" name="a3" id="a33" value="3" title="Choose 3"  required/></td>
                                 <td><input type="radio" name="a3" id="a34" value="4" title="Choose 4"  required /></td>
@@ -899,7 +899,7 @@ if (isset($_POST['evaluate'])){
 
                             <tr>
                                 <td>a. The extent to which the employee communicates effectively and accurately with peers, supervisors and other business contacts. Considers writtend and verbal communication.</td>
-                                <td><input type="radio" name="a4" id="a41" value="1" title="Choose 1" checked required/></td>
+                                <td><input type="radio" name="a4" id="a41" value="1" title="Choose 1"  required/></td>
                                 <td><input type="radio" name="a4" id="a42" value="2" title="Choose 2"  required/></td>
                                 <td><input type="radio" name="a4" id="a43" value="3" title="Choose 3"  required/></td>
                                 <td><input type="radio" name="a4" id="a44" value="4" title="Choose 4"  required/></td>
@@ -917,7 +917,7 @@ if (isset($_POST['evaluate'])){
 
                             <tr>
                                 <td>a. The extent to which the employee cooperates and work harmoniously with peers, supervisors and other business contacts.</td>
-                                <td><input type="radio" name="a5" id="a51" value="1" title="Choose 1" checked required/></td>
+                                <td><input type="radio" name="a5" id="a51" value="1" title="Choose 1"  required/></td>
                                 <td><input type="radio" name="a5" id="a52" value="2" title="Choose 2"  required/></td>
                                 <td><input type="radio" name="a5" id="a53" value="3" title="Choose 3"  required/></td>
                                 <td><input type="radio" name="a5" id="a54" value="4" title="Choose 4"  required/></td>
@@ -942,10 +942,10 @@ if (isset($_POST['evaluate'])){
 
                                 </td>
                                 <td>
-                                    <input type="radio" name="a6" id="a61" value="1" title="Choose 1" checked required/><br>
-                                    <input type="radio" name="b6" id="b611" value="1" title="Choose 1" checked required/><br>
-                                    <input type="radio" name="c6" id="c6111" value="1" title="Choose 1" checked required/><br>
-                                    <input type="radio" name="d6" id="d61111" value="1" title="Choose 1" checked required/>
+                                    <input type="radio" name="a6" id="a61" value="1" title="Choose 1"  required/><br>
+                                    <input type="radio" name="b6" id="b611" value="1" title="Choose 1"  required/><br>
+                                    <input type="radio" name="c6" id="c6111" value="1" title="Choose 1"  required/><br>
+                                    <input type="radio" name="d6" id="d61111" value="1" title="Choose 1"  required/>
                                 </td>
                                 <td>
                                     <input type="radio" name="a6" id="a52" value="2" title="Choose 2"  required/><br>
@@ -1958,6 +1958,45 @@ if (isset($_POST['evaluate'])){
                 alert( "Error Retrieving Branch Data" );
             })
         });
+
+//ADD EMP RESTRICTIONS
+        function restriction(restrict){
+            $("input[name="+restrict+"]").on({
+                "keydown": function (e) {
+                    // Allow: backspace, delete, tab, escape, enter and .
+                    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                        // Allow: Ctrl/cmd+A
+                        (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        // Allow: Ctrl/cmd+C
+                        (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        // Allow: Ctrl/cmd+X
+                        (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        // Allow: home, end, left, right
+                        (e.keyCode >= 35 && e.keyCode <= 39)) {
+                        // let it happen, don't do anything
+                        return;
+                    }
+
+                    // Ensure that it is a number and stop the keypress
+                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                        e.preventDefault();
+                    }
+                },
+                "keyup change": function(){
+                    $contact = $(this);
+                    $maxLength = 11;
+
+                    if ($contact.val().length > $maxLength){
+                        $contact.val($contact.val().substring(0, $maxLength))
+                    }
+                }
+            });
+        }
+        restriction('ConNum');
+        restriction('sssnum');
+        restriction('philnum');
+        restriction('tinnum');
+        restriction('Pagibignum');
 
 
     });
