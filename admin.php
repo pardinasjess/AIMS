@@ -41,15 +41,17 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
     isset($fatherName) && isset($motherName) && isset($sssNum) && isset($philNum) && isset($tinNum) &&
     isset($pagibigNum) && isset($position) && isset($id))
 {
+    // If the user chooses the other in selection use the input instead.
+    if ($empstatus == "_other"){
+        $empstatus = $custom_empstatus;
+    }
 
+    if ($position == "_other"){
+        $position = $custom_position;
+    }
+    
     if ($id == ""){
-        // If the user chooses the other in selection use the input instead.
-        if ($empstatus == "_other"){
-            $empstatus = $custom_empstatus;
-        }
-        if ($position == "_other"){
-            $position = $custom_position;
-        }
+        
 
 	    $sql = "INSERT INTO `accounts`
             (`username`, `password`, `fname`, `mname`, `lname`, `address`, `contact_num`, `birthdate`, `position`, `emp_type`, `date_hired`, `father_name`, `mother_name`, `sss_no`, `ph_no`, `pagibig`, `tin`, `status`)
@@ -59,6 +61,7 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
 
         FlashCard::setFlashCard("accountCreated");
     }else{
+        
         $sql = "UPDATE `accounts`
                 SET `username`='$username',`password`='$password',`fname`='$fname',`mname`='$mname',
                     `lname`='$lname',`address`='$address',`contact_num`='$contact',`birthdate`='$birthdate',
@@ -1923,10 +1926,11 @@ if (isset($_POST['evaluate'])){
                         return false;
                     }
                 });
+
                 if (!exists){
                     $("select#Pos").val("_other");
                     $("#_otherPos").val(accountInfo["position"]).show();
-                }else{
+                }else{  
                     $("select#Pos").val(accountInfo["position"]);
                 }
 
