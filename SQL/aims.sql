@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2018 at 12:06 PM
+-- Generation Time: Apr 25, 2018 at 08:00 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -39,7 +39,7 @@ CREATE TABLE `accounts` (
   `contact_num` varchar(255) NOT NULL,
   `birthdate` date NOT NULL,
   `position` enum('ah','as','ea','os','sss') NOT NULL,
-  `emp_type` enum('probationary','fixed_period','regular','trainee') NOT NULL,
+  `emp_type` varchar(255) NOT NULL,
   `date_hired` date NOT NULL,
   `father_name` varchar(255) NOT NULL,
   `mother_name` varchar(255) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `fname`, `mname`, `lname`, `address`, `contact_num`, `birthdate`, `position`, `emp_type`, `date_hired`, `father_name`, `mother_name`, `sss_no`, `ph_no`, `pagibig`, `tin`, `photo`, `score`, `acct_type`, `status`) VALUES
 (1, 'admin', 'admin', 'Luis Edward', 'Manzanal', 'Miranda', 'Sipocot, Camarines Sur', '09980083433', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 0, 'admin', 'active'),
-(6, 'abccc', 'asdasd', 'asdasdasdasdas', 'dasdas', 'dasdasda', 'sdasdasd', 'asdasdasdasd', '2018-03-08', 'ah', 'fixed_period', '2018-03-08', 'asdasdasd', 'asdasdasdas', 'dasdasdas', 'asdasdasdassdasd', 'asdasd', 'asdasd', '1522061327Desert.jpg', 0, 'employee', 'active'),
+(6, 'abccc', 'asdasd', 'asdasdasdasdas', 'dasdas', 'dasdasda', 'sdasdasd', 'asdasdasdasd', '2018-03-08', 'ah', 'fixed_period', '2018-03-08', 'asdasdasd', 'asdasdasdas', '124124124', '124124', 'asdasd', 'asdasd', '1522061327Desert.jpg', 0, 'employee', 'active'),
 (8, 'asd123', 'asd123', 'Jess123', 'Men', 'Pards', 'Abc', 'asd291898', '2018-03-27', 'as', 'regular', '2018-03-27', 'Pards1', 'Pards2', '12412412', '412412412', '1241242', '4124124', '1522564913download.jpg', 0, 'employee', 'active'),
 (12, 'kim', 'kim', 'Kim', 'b', 'Luta', 'aksfgsdgh', '0837349562', '1988-02-08', 'as', 'trainee', '2015-02-09', 'm', 'l', '039457', '385619', '124154', '343254', '', 0, 'employee', 'active'),
 (13, '1234567890', '1234567890', 'shay', 'm', 'tias', 'shay@gmail.com', '09562738193', '0000-00-00', 'ah', 'probationary', '0000-00-00', '', '', '', '', '', '', '', 9, 'employee', 'active'),
