@@ -604,12 +604,19 @@ if (isset($_POST['evaluate'])){
                             <div class="col-8 input-group mb-3">
                                 <select id="EmpStatus" class="custom-select" name="EmpStatus" required>
                                     <option value="" selected disabled>== SELECT EMPLOYMENT TYPE ==</option>
-                                    <option value="trainee">Trainee</option>
+                                    <option value="Trainee">Trainee</option>
                                     <option value="probationary">Probationary</option>
-                                    <option value="fixed_period">Fixed Period</option>
-                                    <option value="regular">Regular</option>
+                                    <option value="Fixed Period">Fixed Period</option>
+                                    <option value="Regular">Regular</option>
+                                    <option value="_other">Other (Define Custom)</option>
                                 </select>
 
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-4"> </div>
+                            <div class="col-8 input-group mb-3">
+                                <input type="text" class="form-control" style="display: none" placeholder="Custom Employment Type" name="_otherEmpStatus" id="_otherEmpStatus">                                
                             </div>
                         </div>
                     </div>
@@ -1959,7 +1966,7 @@ if (isset($_POST['evaluate'])){
             })
         });
 
-//ADD EMP RESTRICTIONS
+        //ADD EMP RESTRICTIONS
         function restriction(restrict){
             $("input[name="+restrict+"]").on({
                 "keydown": function (e) {
@@ -1998,6 +2005,15 @@ if (isset($_POST['evaluate'])){
         restriction('tinnum');
         restriction('Pagibignum');
 
+
+        // Custom Employee Type Value
+        $("#EmpStatus").on("change", function(){
+            if ($(this).val() == "_other"){
+                $("#_otherEmpStatus").show();
+            }else{
+                $("#_otherEmpStatus").hide();
+            }
+        })
 
     });
 </script>
