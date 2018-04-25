@@ -22,6 +22,7 @@ if(!AccountHandler::isLogin()){
 @ $birthdate = $_POST["DoBirth"];
 @ $position = $_POST["Pos"];
 @ $empstatus = $_POST["EmpStatus"];
+@ $custom_empstatus = $_POST["_otherEmpStatus"];
 @ $username = $_POST["username"];
 @ $password = $_POST["password"];
 @ $hiredDate = $_POST["Dhired"];
@@ -41,6 +42,11 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
 {
 
     if ($id == ""){
+        // If the user chooses the other in selection use the input instead.
+        if ($empstatus == "_other"){
+            $empstatus = $custom_empstatus;
+        }
+
 	    $sql = "INSERT INTO `accounts`
             (`username`, `password`, `fname`, `mname`, `lname`, `address`, `contact_num`, `birthdate`, `position`, `emp_type`, `date_hired`, `father_name`, `mother_name`, `sss_no`, `ph_no`, `pagibig`, `tin`, `status`)
              VALUES
