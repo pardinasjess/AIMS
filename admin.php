@@ -595,11 +595,12 @@ if (isset($_POST['evaluate'])){
                             <div class="col-8 input-group mb-3">
                                 <select id="Pos" class="custom-select" name="Pos" required>
                                     <option value="" selected disabled>== SELECT POSITION == </option>
-                                    <option value="ah">Accounting Head</option>
-                                    <option value="as">Accounting Staff</option>
-                                    <option value="ea">Executive Assistant</option>
-                                    <option value="os">Office Staff</option>
-                                    <option value="sss">Senior Sales Supervisor</option>
+                                    <option value="Accounting Head">Accounting Head</option>
+                                    <option value="Accounting Staff">Accounting Staff</option>
+                                    <option value="Executive Assistant">Executive Assistant</option>
+                                    <option value="Office Staff">Office Staff</option>
+                                    <option value="Senior Sales Supervisor">Senior Sales Supervisor</option>
+                                    <option value="_other">Other</option>
                                 </select>
                             </div>
                         </div>
@@ -1678,28 +1679,6 @@ if (isset($_POST['evaluate'])){
                         "<button data-id=\"" +cellData+ "\" type=\"button\" class=\"attachBtn btn btn-info\"  data-toggle='modal' data-target='#attachModal'>Attachments</button>\n" +
                         "<button data-id=\"" +cellData+ "\" type=\"button\" class=\"deleteBtn btn btn-danger\"  data-toggle='modal' data-target='#deleteModal'>Delete</button>"
                     );
-                }
-            },{
-                "orderable":false,
-                "targets": -3,
-                "createdCell": function(td, cellData, rowData, row, col){
-                    switch (cellData){
-                        case "ah":
-                            $(td).html("Accounting Head");
-                            break;
-                        case "as":
-                            $(td).html("Accounting Staff");
-                            break;
-                        case "ea":
-                            $(td).html("Executive Assistant");
-                            break;
-                        case "os":
-                            $(td).html("Office Staff");
-                            break;
-                        case "sss":
-                            $(td).html("Senior Sales Supervisor");
-                            break;
-                    }
                 }
             }],
             language: {
