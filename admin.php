@@ -47,7 +47,7 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
         if ($empstatus == "_other"){
             $empstatus = $custom_empstatus;
         }
-        if ($position == "_position"){
+        if ($position == "_other"){
             $position = $custom_position;
         }
 
