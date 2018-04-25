@@ -2029,20 +2029,25 @@ if (isset($_POST['evaluate'])){
             }
         })
 
-        // Autocompute Hired
-        $("#Dhired").change(function(){
-            var $Dhired = new Date($(this).val());
+        function calculateHiredDuration(selector){
+            var $Dhired = new Date(selector.val());
             var curDay = new Date();                // Current Day
             
             // The date input should be valid.
             if ( !!$Dhired.valueOf() ) { 
-                console.log(curDay.getFullYear() - $Dhired.getFullYear());
-                console.log(curDay.getMonth() - $Dhired.getMonth());
+                var $totalYears = (curDay.getFullYear() - $Dhired.getFullYear());
+                var $totalMonths = (curDay.getMonth() - $Dhired.getMonth());
+
+                $("#hired_duration").val($totalMonths+ " Month(s) and "+$totalYears+ " Year(s).");
             } else {
                  /* Invalid date */
-                 alert("Invalid Date");
-                 $(this).val("");
+                 selector.val("having problem to compute");
             }
+        }
+
+        // Autocompute Hired
+        $("#Dhired").change(function(){
+            calculateHiredDuration($(this))
         })
     });
 </script>
