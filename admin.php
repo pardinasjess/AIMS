@@ -1860,6 +1860,9 @@ if (isset($_POST['evaluate'])){
         $("#addModal").on("hidden.bs.modal", function () {
             $(this).find(".modal-title").html("Add Employee Account:");
 
+            $("#hired_duration").val("");
+            $("#_otherEmpStatus").val("");
+
             $("input#EditID").val("");
 
             $("input#fName").val("");
@@ -1918,6 +1921,9 @@ if (isset($_POST['evaluate'])){
                 $("input#phil").val(accountInfo["ph_no"]);
                 $("input#tinum").val(accountInfo["tin"]);
                 $("input#pagibig").val(accountInfo["pagibig"]);
+
+                // Calculate the Hired Duration
+                calculateHiredDuration($("#Dhired"));
             })
             .fail(function() {
                 $addModal.find(".modal-title").html("Error");
@@ -2049,6 +2055,7 @@ if (isset($_POST['evaluate'])){
         $("#Dhired").change(function(){
             calculateHiredDuration($(this))
         })
+
     });
 </script>
 </body>
