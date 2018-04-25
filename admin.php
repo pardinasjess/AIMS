@@ -21,6 +21,7 @@ if(!AccountHandler::isLogin()){
 @ $contact = $_POST["ConNum"];
 @ $birthdate = $_POST["DoBirth"];
 @ $position = $_POST["Pos"];
+@ $custom_position = $_POST["_otherPos"];
 @ $empstatus = $_POST["EmpStatus"];
 @ $custom_empstatus = $_POST["_otherEmpStatus"];
 @ $username = $_POST["username"];
@@ -45,6 +46,9 @@ if(isset($fname) && isset($mname) && isset($lname) && isset($address) && isset($
         // If the user chooses the other in selection use the input instead.
         if ($empstatus == "_other"){
             $empstatus = $custom_empstatus;
+        }
+        if ($position == "_position"){
+            $position = $custom_position;
         }
 
 	    $sql = "INSERT INTO `accounts`
@@ -592,7 +596,7 @@ if (isset($_POST['evaluate'])){
                             <div class="col-4">
                                 <label for="Pos">Position</label>
                             </div>
-                            <div class="col-8 input-group mb-3">
+                            <div class="col-8 input-group">
                                 <select id="Pos" class="custom-select" name="Pos" required>
                                     <option value="" selected disabled>== SELECT POSITION == </option>
                                     <option value="Accounting Head">Accounting Head</option>
@@ -600,8 +604,15 @@ if (isset($_POST['evaluate'])){
                                     <option value="Executive Assistant">Executive Assistant</option>
                                     <option value="Office Staff">Office Staff</option>
                                     <option value="Senior Sales Supervisor">Senior Sales Supervisor</option>
-                                    <option value="_other">Other</option>
+                                    <option value="_other">Other (Define Custom)</option>
                                 </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-2">
+                            <div class="col-4"> </div>
+                            <div class="col-8 input-group">
+                                <input type="text" class="form-control" style="display: none" placeholder="Custom Employment Position" name="_otherPos" id="_otherPos">                                
                             </div>
                         </div>
                         <div class="row mt-2">
@@ -1841,6 +1852,7 @@ if (isset($_POST['evaluate'])){
 
             $("#hired_duration").val("");
             $("#_otherEmpStatus").val("").hide();
+            $("#_otherPos").val("").hide();
 
             $("input#EditID").val("");
 
@@ -1888,7 +1900,6 @@ if (isset($_POST['evaluate'])){
                 $("input#address").val(accountInfo["address"]);
                 $("input#ConNum").val(accountInfo["contact_num"]);
                 $("input#DoBirth").val(accountInfo["birthdate"]);
-                $("select#Pos").val(accountInfo["position"]);
                
 
                 var exists = false;
@@ -1903,6 +1914,20 @@ if (isset($_POST['evaluate'])){
                     $("#_otherEmpStatus").val(accountInfo['emp_type']).show();
                 }else{
                     $("select#EmpStatus").val(accountInfo["emp_type"]);
+                }
+
+                var exists = false;
+                $('select#Pos option').each(function(){
+                    if (this.value == accountInfo["emp_type"]) {
+                        exists = true;
+                        return false;
+                    }
+                });
+                if (!exists){
+                    $("select#Pos").val("_other");
+                    $("#_otherPos").val(accountInfo["position"]).show();
+                }else{
+                    $("select#Pos").val(accountInfo["position"]);
                 }
 
                 $("input#username").val(accountInfo["username"]);
@@ -2025,6 +2050,14 @@ if (isset($_POST['evaluate'])){
                 $("#_otherEmpStatus").show();
             }else{
                 $("#_otherEmpStatus").hide();
+            }
+        })
+         // Custom Employee Position Value
+        $("#Pos").on("change", function(){
+            if ($(this).val() == "_other"){
+                $("#_otherPos").show();
+            }else{
+                $("#_otherPos").hide();
             }
         })
 
