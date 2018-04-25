@@ -1861,7 +1861,7 @@ if (isset($_POST['evaluate'])){
             $(this).find(".modal-title").html("Add Employee Account:");
 
             $("#hired_duration").val("");
-            $("#_otherEmpStatus").val("");
+            $("#_otherEmpStatus").val("").hide();
 
             $("input#EditID").val("");
 
@@ -1910,7 +1910,21 @@ if (isset($_POST['evaluate'])){
                 $("input#ConNum").val(accountInfo["contact_num"]);
                 $("input#DoBirth").val(accountInfo["birthdate"]);
                 $("select#Pos").val(accountInfo["position"]);
-                $("select#EmpStatus").val(accountInfo["emp_type"]);
+               
+
+                var exists = false;
+                $('select#EmpStatus option').each(function(){
+                    if (this.value == accountInfo["emp_type"]) {
+                        exists = true;
+                        return false;
+                    }
+                });
+                if (!exists){
+                    $("select#EmpStatus").val("_other");
+                    $("#_otherEmpStatus").val(accountInfo['emp_type']).show();
+                }else{
+                    $("select#EmpStatus").val(accountInfo["emp_type"]);
+                }
 
                 $("input#username").val(accountInfo["username"]);
                 $("input#password").val(accountInfo["password"]);
