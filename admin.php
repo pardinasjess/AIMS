@@ -607,7 +607,7 @@ if (isset($_POST['evaluate'])){
                             <div class="col-4">
                                 <label for="EmpStatus">Employment Type</label>
                             </div>
-                            <div class="col-8 input-group mb-3">
+                            <div class="col-8 input-group">
                                 <select id="EmpStatus" class="custom-select" name="EmpStatus" required>
                                     <option value="" selected disabled>== SELECT EMPLOYMENT TYPE ==</option>
                                     <option value="Trainee">Trainee</option>
@@ -621,7 +621,7 @@ if (isset($_POST['evaluate'])){
                         </div>
                         <div class="row mt-2">
                             <div class="col-4"> </div>
-                            <div class="col-8 input-group mb-3">
+                            <div class="col-8 input-group">
                                 <input type="text" class="form-control" style="display: none" placeholder="Custom Employment Type" name="_otherEmpStatus" id="_otherEmpStatus">                                
                             </div>
                         </div>
