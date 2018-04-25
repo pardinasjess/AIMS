@@ -1918,7 +1918,7 @@ if (isset($_POST['evaluate'])){
 
                 var exists = false;
                 $('select#Pos option').each(function(){
-                    if (this.value == accountInfo["emp_type"]) {
+                    if (this.value == accountInfo["position"]) {
                         exists = true;
                         return false;
                     }
