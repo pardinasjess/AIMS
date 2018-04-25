@@ -655,6 +655,14 @@ if (isset($_POST['evaluate'])){
                         </div>
                         <div class="row mt-2">
                             <div class="col-4">
+                                <label for="Dhired">Hired Duration</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control" name="hired_duration" id="hired_duration" disabled>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-4">
                                 <label for="FatName">Father's Name</label>
                             </div>
                             <div class="col-8">
