@@ -2021,6 +2021,21 @@ if (isset($_POST['evaluate'])){
             }
         })
 
+        // Autocompute Hired
+        $("#Dhired").change(function(){
+            var $Dhired = new Date($(this).val());
+            var curDay = new Date();                // Current Day
+            
+            // The date input should be valid.
+            if ( !!$Dhired.valueOf() ) { 
+                console.log(curDay.getFullYear() - $Dhired.getFullYear());
+                console.log(curDay.getMonth() - $Dhired.getMonth());
+            } else {
+                 /* Invalid date */
+                 alert("Invalid Date");
+                 $(this).val("");
+            }
+        })
     });
 </script>
 </body>
