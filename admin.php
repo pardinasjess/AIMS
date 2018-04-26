@@ -2009,7 +2009,7 @@ if (isset($_POST['evaluate'])){
         });
 
         //ADD EMP RESTRICTIONS
-        function restriction(restrict){
+        function restriction(restrict, maxlength){
             $("input[name="+restrict+"]").on({
                 "keydown": function (e) {
                     // Allow: backspace, delete, tab, escape, enter and .
@@ -2033,7 +2033,7 @@ if (isset($_POST['evaluate'])){
                 },
                 "keyup change": function(){
                     $contact = $(this);
-                    $maxLength = 11;
+                    $maxLength = maxlength;
 
                     if ($contact.val().length > $maxLength){
                         $contact.val($contact.val().substring(0, $maxLength))
@@ -2041,11 +2041,11 @@ if (isset($_POST['evaluate'])){
                 }
             });
         }
-        restriction('ConNum');
-        restriction('sssnum');
-        restriction('philnum');
-        restriction('tinnum');
-        restriction('Pagibignum');
+        restriction('ConNum', 11);
+        restriction('sssnum', 10);
+        restriction('philnum', 12);
+        restriction('tinnum', 12);
+        restriction('Pagibignum', 12);
 
 
         // Custom Employee Type Value
