@@ -1,20 +1,14 @@
 <?php 
-//ENTER THE RELEVANT INFO BELOW
-$mysqlUserName      = "root";
-$mysqlPassword      = "";
-$mysqlHostName      = "localhost";
-$DbName             = "ncpo";
 
 // $backup_name        = md5(time())."_mybackup.sql";
 $backup_name        = false;
-$tables             = array("applicants", "notification");
+$tables             = array("accounts", "codes");
 
-Export_Database($mysqlHostName,$mysqlUserName,$mysqlPassword,$DbName,  $tables, $backup_name );
+Export_Database($tables, $backup_name );
 
-function Export_Database($host,$user,$pass,$name,  $tables=false, $backup_name=false )
+function Export_Database($tables=false, $backup_name=false )
 {
-    $mysqli = new mysqli($host,$user,$pass,$name); 
-    $mysqli->select_db($name); 
+    $mysqli = MySqlLeaf::getCon2();
     $mysqli->query("SET NAMES 'utf8'");
 
     $queryTables    = $mysqli->query('SHOW TABLES'); 
