@@ -418,6 +418,9 @@ if (isset($_POST['evaluate'])){
             <li class="nav-item">
                 <a class="nav-link" href="code.php">Examination Codes<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="backup.php">Backup Data<span class="sr-only">(current)</span></a>
+            </li>
             <li class="float-right">
                 <a href="logout.php" class="btn  btn-outline-danger">Sign out</a>
             </li>
