@@ -1,10 +1,12 @@
 <?php 
 
+require_once 'class/MySqlLeaf.php';
+
 // $backup_name        = md5(time())."_mybackup.sql";
 $backup_name        = false;
-$tables             = array("accounts", "codes");
+// $tables             = array("accounts", "codes");
 
-Export_Database($tables, $backup_name );
+Export_Database(false, $backup_name );
 
 function Export_Database($tables=false, $backup_name=false )
 {
@@ -68,7 +70,7 @@ function Export_Database($tables=false, $backup_name=false )
             }
         } $content .="\n\n\n";
     }
-    $backup_name = $backup_name ? $backup_name : $name."___(".date('H-i-s')."_".date('d-m-Y').")__rand".rand(1,11111111).".sql";
+    $backup_name = $backup_name ? $backup_name : "(".date('d-m-Y').").sql";
     // $backup_name = $backup_name ? $backup_name : $name.".sql";
     header('Content-Type: application/octet-stream');   
     header("Content-Transfer-Encoding: Binary"); 

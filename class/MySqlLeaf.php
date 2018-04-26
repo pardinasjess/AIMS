@@ -39,6 +39,7 @@ class MySqlLeaf {
 			}
 			self::$dbCon2 = $db;
 		}
+		return self::$dbCon2;
+		
 	}
-
 }
