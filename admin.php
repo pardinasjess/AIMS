@@ -2079,7 +2079,7 @@ if (isset($_POST['evaluate'])){
                 
                 if ($totalMonths < 0){
                     $totalYears--;
-                    $totalMonths = Math.abs($totalMonths);
+                    $totalMonths = (12 - $Dhired.getMonth()) + curDay.getMonth();
                     $("#hired_duration").val($totalYears+ " Year(s) and " +$totalMonths+ " Month(s)");
                 }else{
                     $("#hired_duration").val($totalYears+ " Year(s) and " +$totalMonths+ " Month(s)");
