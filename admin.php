@@ -2074,10 +2074,17 @@ if (isset($_POST['evaluate'])){
             
             // The date input should be valid.
             if ( !!$Dhired.valueOf() ) { 
-                var $totalYears = Math.abs(curDay.getFullYear() - $Dhired.getFullYear());
-                var $totalMonths = Math.abs(curDay.getMonth() - $Dhired.getMonth());
+                var $totalYears = curDay.getFullYear() - $Dhired.getFullYear();
+                var $totalMonths = curDay.getMonth() - $Dhired.getMonth();
+                
+                if ($totalMonths < 0){
+                    $totalYears--;
+                    $totalMonths = Math.abs($totalMonths);
+                    $("#hired_duration").val($totalYears+ " Year(s) and " +$totalMonths+ " Month(s)");
+                }else{
+                    $("#hired_duration").val($totalYears+ " Year(s) and " +$totalMonths+ " Month(s)");
+                }
 
-                $("#hired_duration").val($totalMonths+ " Month(s) and "+$totalYears+ " Year(s).");
             } else {
                  /* Invalid date */
                  selector.val("having problem to compute");
